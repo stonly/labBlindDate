@@ -16,11 +16,13 @@ controllers.Home = function($scope, angularFire){
     return result;
   };
   $scope.addLabRat = function(name){
-  	if(name && $scope.labList.indexOf(name) === -1){
+  	if(name){
   		$scope.labrats[name]="btn-info";
   		$scope.labrat = "";
-  		console.log('new name')
-  		$scope.labList.push(name);
+  		if($scope.labList.indexOf(name) === -1){
+  			console.log('new name')
+  			$scope.labList.push(name);
+  		}
   	}
   }
   var promise = angularFire(ref, $scope, "labList");
