@@ -1,29 +1,3 @@
-/*
-labApp.value('sib_list', [
-							"Brett hudson"
-							,"Andy Mejias"
-							,"Jose L Pimienta"
-							,"Nelson Milian"
-							,"Patrick Noel"
-							,"Jason Ford"
-							,"David Notik"
-							,"Joe Smoe"
-							,"Catalina Ayubi"
-							,"Roberto Ruvalcaba"
-							,"Michael Laas"
-							,"Michael McCord"
-							,"Stonly Baptiste"
-							,"Camila Souza"
-							,"Pabla Ayala"
-							,"Alejandro Bustos"
-							,"Pablo Ruiz"
-							,"Peter Marinez"
-							,"Brian Breslin"
-							,"Richard Grundy"
-							,"Lu Martinez"
-
-						] );
-*/
 var controllers = {};
 controllers.Home = function($scope, angularFire){
   $scope.labList = [];
@@ -50,8 +24,8 @@ controllers.Home = function($scope, angularFire){
   }
   var promise = angularFire(ref, $scope, "labList");
   promise.then(function(todos) {
-			loadLab();
-		});
+	loadLab();
+  });
 
   function loadLab(){
   	for (var i = $scope.labList.length - 1; i >= 0; i--) {
@@ -60,19 +34,17 @@ controllers.Home = function($scope, angularFire){
   };
 
   $scope.resetLab = function() {
-  	  	$scope.labrat = "";
+  	$scope.labrat = "";
   	angular.forEach($scope.labrats, function(value, key){
   		$scope.labrats[key] = "btn-info";
   	});
   }
 
   $scope.toggleLabRat = function(name){
-  	if($scope.labrats[name] == "btn-info" ||
-  						 $scope.labrats[name] == "btn-success"){
+  	if($scope.labrats[name] == "btn-info" || $scope.labrats[name] == "btn-success"){
   		$scope.labrats[name] = "btn-default";
   	} else {
   		$scope.labrats[name] = "btn-info";
-
   	}
   }
   $scope.pickRandom = function(){
