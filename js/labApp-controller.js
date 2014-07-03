@@ -1,7 +1,7 @@
 var controllers = {};
 controllers.Home = function($scope, angularFire){
   $scope.labList = [];
-  var ref = new Firebase("https://lbd.firebaseIO.com/list");
+  var ref = new Firebase("https://lbd.firebaseIO.com/list2");
 
   $scope.labrats = {}
 
@@ -52,11 +52,15 @@ controllers.Home = function($scope, angularFire){
   }
   $scope.pickRandom = function(){
   	var availableRats = [];
+  	var cleanList = []
   	angular.forEach($scope.labrats, function(value, key){
+  		cleanList.push(key)
   		if($scope.labrats[key] != 'btn-default' ){
   			availableRats.push(key);
   		}
   	})
+  	$scope.labList= cleanList;
+
   	var chosen = _.sample(_.values(availableRats), 2);
   	console.log(chosen)
   	angular.forEach(availableRats, function(value, key){

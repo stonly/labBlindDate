@@ -7,7 +7,10 @@
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
  </head>
  <body>
-
+ <div ng-init="">
+   <button class="btn" ng-click="clicked=clicked+1">Click Here!</button>
+   <span>You have click {{clicked}} times!</span>
+ </div>
   <div ng-view></div>
   
   <script src="//code.jquery.com/jquery.js"></script>
